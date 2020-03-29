@@ -1,0 +1,174 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#board {
+	width: 1400px;
+	height: auto;
+	overflow-x: hidden;
+	margin: 30px auto 0;
+	padding: 12px;
+	box-sizing: border-box;
+}
+
+#message {
+	width: 900px;
+	background: #EFEFEF;
+	float: left;
+	border: #4B81A3 1px solid;
+	border-radius: 5px;
+	padding: 12px;
+	box-sizing: border-box;
+}
+
+input[type="text"] {
+	display: none;
+}
+
+.inputMessage {
+	font-size: 16px;
+	margin: 12px 0 0 0;
+	padding: 12px;
+	box-sizing: border-box;
+	border: #4B81A3 1px solid;
+}
+
+.btns {
+	width: 100%;
+	height: 30px;
+}
+
+button {
+	outline-style: none;
+	width: 80px;
+	height: 30px;
+	background: #4B81A3;
+	border: none;
+	color: #DFEBEB;
+	margin-left: 8px;
+	float: right;
+}
+
+form input[type="button"], .headertip input[type="button"] {
+	outline-style: none;
+	width: 80px;
+	height: 30px;
+	background: #4B81A3;
+	border: none;
+	color: #DFEBEB;
+	margin-left: 8px;
+	float: left;
+}
+
+.headertip span {
+	display: inline-block;
+	float: left;
+}
+
+.userinformation {
+	height: 30px;
+	font-size: 16px;
+}
+
+.userImg {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	float: left;
+}
+
+.userName {
+	height: 30px;
+	line-height: 30px;
+	margin: 0 0 0 8px;
+	color: #666666;
+	font-size: 14px;
+	float: left;
+}
+
+.userMsg {
+	margin: 8px 0 0 0;
+	height: 50px;
+}
+
+.upDownImg {
+	width: 16px;
+	height: 16px;
+}
+
+.express {
+	color: #989CA8;
+	height: 20px;
+	font-size: 14px;
+	display: block;
+}
+
+.upAndDown {
+	width: 200px;
+	height: 20x;
+	float: right;
+	line-height: 25px;
+}
+
+.upAndDown a {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	font-size: 16px;
+}
+
+.upAndDown .rootDelete {
+	width: 40px;
+	margin: 0 20px;
+}
+
+#bulletin {
+	width: 460px;
+	float: right;
+}
+
+.notices {
+	width: 460px;
+	background: #EFEFEF;
+	border-radius: 5px;
+	padding: 12px;
+	box-sizing: border-box;
+}
+
+.headertip {
+	height: 36px;
+	font-size: 22px;
+	color: #4B81A3;
+	font-weight: 600;
+	font-family: "幼圆";
+	padding: 0 0 0 12px;
+	border-bottom: #C0C0C0 1px solid;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	padding: 12px;
+	box-sizing: border-box;
+	border-bottom: #C0C0C0 1px solid;
+}
+
+.info {
+	margin: 12px 0;
+}
+
+p {
+	font-size: 12px;
+	color: #989CA8;
+}
+
+footer {
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	color: #DBE1E2;
+	margin: 12px auto 0;
+}

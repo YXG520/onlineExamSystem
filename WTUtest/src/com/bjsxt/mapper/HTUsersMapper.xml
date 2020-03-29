@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bjsxt.mapper.HTUsersMapper">
+	<!-- parameterType="com.bjsxt.pojo.Users" -->
+
+	<select id="findByRootUser" resultType="users">
+		select * from users
+		<where>
+			<if test=" root != 0 and root !=null ">
+				and root= ${root}
+			</if>
+			<if test=" username != null and username !=''">
+				and (username like '%${username}%' or mail like '%${username}%')
+			</if>
+		</where>
+		order by root desc
+	</select>
+
+	<delete id="deleteUsers" parameterType="int">
+		delete from users where id =#{id}
+	</delete>
+	<insert id="insertExcelUsers" parameterType="list">
+	insert into users values
+	<foreach collection="list" item="userinfo" separator=",">
+   (default,null,#{userinfo.username},#{userinfo.password},#{userinfo.photo},#{userinfo.root},#{userinfo.school},#{userinfo.major},#{userinfo.grade},#{userinfo.name})
+    </foreach>
+	
+	</insert>
+	
+</mapper>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bjsxt.mapper.TiKuMapper">
+	<!-- parameterType="com.bjsxt.pojo.Users" -->
+	<select id="selAllPdBySubjectCode" parameterType="string"
+		resultType="tiKu">
+		select * from pd
+		<where>
+			<if test=" SubjectCode != '' and SubjectCode !=null ">and SubjectCode=#{SubjectCode} </if>
+		</where>
+	</select>
+
+	<select id="selAllDdBySubjectCode" parameterType="string"
+		resultType="tiKu">
+		select * from dd
+		<where>
+			<if test=" SubjectCode != '' and SubjectCode !=null ">and SubjectCode=#{SubjectCode} </if>
+		</where>
+	</select>
+
+	<select id="selAllDxBySubjectCode" parameterType="string"
+		resultType="tiKu">
+		select * from dx
+		<where>
+			<if test=" SubjectCode != '' and SubjectCode !=null ">and SubjectCode=#{SubjectCode} </if>
+		</where>
+	</select>
+	<!-- 整合前端用户后台管理员的题目搜索 -->
+	<!-- <if test=" QStyleCode != '' and QStyleCode !=null ">${QStyleCode} </if> -->
+
+	<select id="selTiMuInHT" parameterType="tiKu" resultType="tiKu">
+		select * from
+		<choose>
+			<when test="QStyleCode =='pd' ">
+				pd
+			</when>
+			<when test="QStyleCode =='dx'">
+				dx
+			</when>
+			<when test="QStyleCode =='dd'">
+				dd
+			</when>
+		</choose>
+		<where>
+			<if test=" SubjectCode != '' and SubjectCode !=null ">and SubjectCode=${SubjectCode} </if>
+			<if test=" Topic != '' and Topic !=null ">and Topic like '%${Topic}%' </if>
+		</where>
+	</select>
+	<delete id="deleteTiMu" parameterType="tiKu">
+		delete from ${QStyleCode} where QID=${QID}
+	</delete>
+	<!-- 更新pd,dd,dx三张题库表的综合sql -->
+	<update id="updateTiMu" parameterType="tiKu">
+		update
+		<choose>
+			<when test="QStyleCode =='PD' ">
+				pd
+			</when>
+			<when test="QStyleCode =='DX'">
+				dx
+			</when>
+			<when test="QStyleCode =='DD'">
+				dd
+			</when>
+		</choose>
+		<set>
+			<if test="QStyleCode != null and QStyleCode != '' ">
+				QStyleCode=#{QStyleCode},
+			</if>
+			<if test="SubjectCode!= null and SubjectCode != '' ">
+				SubjectCode=#{subjectCode},
+			</if>
+			<if test="Topic != null and Topic != '' ">
+				Topic=#{Topic},
+			</if>
+
+			<if test="OptionList != null and OptionList != '' ">
+				OptionList=#{OptionList},
+			</if>
+
+			<if test="Result!= null and Result!= '' ">
+				Result=#{Result},
+			</if>
+			<if test="Chapter!= null and Chapter!= '' ">
+				Chapter=#{Chapter},
+			</if>
+			<if test="Difficulty!= null and Difficulty!= '' ">
+				Difficulty=#{Difficulty},
+			</if>
+			<if test="UpdateTime != null and UpdateTime!=''">
+				UpdateTime=#{UpdateTime},
+			</if>
+		</set>
+		where QID=#{QID}
+	</update>
+	
+	<insert id="insertTiMu" parameterType="tiKu">
+		insert into
+		<choose>
+			<when test="QStyleCode =='PD' ">
+				pd
+			</when>
+			<when test="QStyleCode =='DX'">
+				dx
+			</when>
+			<when test="QStyleCode =='DD'">
+				dd
+			</when>
+		</choose>
+		(QID,SubjectCode,QStyleCode,Topic,OptionList,Result,Chapter,Difficulty,UpdateTime,Comment)values(default,#{subjectCode},#{QStyleCode},#{Topic},#{OptionList},#{Result},#{Chapter},#{Difficulty},#{UpdateTime},#{Comment})
+	</insert>
+</mapper>

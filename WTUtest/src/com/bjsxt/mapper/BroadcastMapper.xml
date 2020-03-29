@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bjsxt.mapper.BroadcastMapper">
+
+
+	<insert id="insertBroadcast" parameterType="broadcast">
+		insert into broadcast values(default,#{theme},#{content},#{updateTime})
+	</insert>
+	<!-- 下面只涉及到一个表的查询 -->
+	<select id="selBroadcast" resultType="broadcast">
+		select * from broadcast order by updateTime DESC
+	</select>
+
+	<delete id="deleteBroadcast" parameterType="broadcast">
+		delete from broadcast where broadcastId=#{broadcastId}
+	</delete>
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bjsxt.mapper.CuoTiMapper">
+
+	<insert id="insertCuoTi"
+		parameterType="com.bjsxt.pojo.IncorrectRecord"
+		statementType="CALLABLE">
+		{call
+		insert_IncorrectRecord(#{testType,mode=IN},#{QID,mode=IN},#{id,mode=IN},#{updateTime,mode=IN})}
+	</insert>
+	<!-- 插入毛病题目存储过程，并且统计错题用户投诉的频率 -->
+	<insert id="ins_MisQuestion"
+		parameterType="com.bjsxt.pojo.MisQuestion" statementType="CALLABLE">
+		{call
+		insert_MisQuestion(#{testType,mode=IN},#{QID,mode=IN},#{updateTime,mode=IN})}
+	</insert>
+
+</mapper>

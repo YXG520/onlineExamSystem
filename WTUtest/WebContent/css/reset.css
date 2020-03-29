@@ -1,0 +1,177 @@
+html, body, ul, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form,
+	fieldset, legend, img {
+	margin: 0;
+	padding: 0;
+}
+
+fieldset, img {
+	border: 0;
+}
+
+address, caption, cite, code, dfn, th, var {
+	font-style: normal;
+	font-weight: normal;
+}
+
+input {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+input::-moz-focus-inner {
+	border: 0;
+	padding: 0;
+}
+
+select, input {
+	vertical-align: middle;
+}
+
+select, input, textarea {
+	font-size: 12px;
+	margin: 0;
+}
+
+input[type="text"], input[type="password"], textarea {
+	outline-style: none;
+	-webkit-appearance: none;
+}
+
+textarea {
+	resize: none;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+a:hover {
+	text-decoration: none;
+	color: inherit;
+}
+
+i, b, em, strong {
+	font-style: normal;
+	font-weight: normal;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+button {
+	border: none;
+	outline: none;
+	display: inline-block;
+}
+
+.wrapper {
+	min-width: 980px;
+	margin: 0 auto;
+}
+
+.f-light {
+	color: #71777c;
+	font-size: 16px;
+	font-family: "Helvetica Neue", Helvetica, "PingFang SC",
+		"Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+.f-focus {
+	color: #5991d4;
+	font-size: 16px;
+	font-family: "Helvetica Neue", Helvetica, "PingFang SC",
+		"Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+/*分页  S*/
+.page {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.page a {
+	display: inline-block;
+	background: #fff 0 0 no-repeat;
+	color: #888;
+	padding: 10px;
+	min-width: 15px;
+	border: 1px solid #E2E2E2;
+}
+
+.page span {
+	display: inline-block;
+	padding: 10px;
+	min-width: 15px;
+	border: 1px solid #E2E2E2;
+}
+
+.page a.current {
+	display: inline-block;
+	background: #009688 0 0 no-repeat;
+	color: #fff;
+	padding: 10px;
+	min-width: 15px;
+	border: 1px solid #009688;
+}
+
+.page a.disabled-link {
+	background: #ececec;
+}
+
+.page p, page-info {
+	margin-top: 10px;
+	color: #555;
+}
+
+/*分页 E*/
+
+/*个人中心 S*/
+.user-con {
+	width: 800px;
+	min-height: 400px;
+	box-shadow: #d8dde1 0px 0px 8px;
+	border-radius: 4px;
+	margin: 20px auto;
+	font-size: 16px;
+	text-align: center;
+	padding: 20px;
+}
+
+.user-navbar {
+	float: left;
+	width: 160px;
+}
+
+.user-navbar li {
+	color: #71777c;
+	font-size: 16px;
+	line-height: 50px;
+}
+
+.user-navbar a {
+	display: block;
+	width: 100%;
+}
+
+.user-navbar li:hover {
+	color: #5991d4;
+}
+
+.user-navbar .active {
+	color: #5991d4;
+}
+
+.user-content {
+	margin-left: 180px;
+	padding: 10px;
+}
+
+/*个人中心 E*/

@@ -1,0 +1,237 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#practicing {
+	width: 1520px;
+	margin: 0 auto;
+}
+
+.guide {
+	width: 300px;
+	height: 700px;
+	overflow: visible;
+}
+
+.guide .que_num {
+	width: 310px;
+	height: 540px;
+	overflow: scroll;
+}
+
+.floatleft {
+	float: left;
+}
+
+.floatright {
+	float: right;
+}
+
+.answerSheet {
+	width: 300px;
+	height: 625px;
+	margin: 12px 0 0 0;
+	border-top: #B4B6B8 1px solid;
+}
+
+.title {
+	width: 100%;
+	height: 40px;
+	display: block;
+	font-size: 20px;
+	text-align: center;
+	color: #666666;
+	line-height: 40px;
+}
+
+.dtk {
+	width: 100%;
+	height: 570px;
+	border-top: #666666 1px solid;
+	margin: 12px 0 0 0;
+	overflow: overlay;
+}
+
+.part {
+	width: 100%;
+	margin: 12px 0 12px;
+	padding: 0 0 0 7px;
+}
+
+ul {
+	list-style: none;
+	width: 290px;
+}
+
+li {
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	border: #4B81A3 1px solid;
+	box-sizing: border-box;
+	margin: 5px 5px;
+}
+/* 做完一题之后的css */
+.bli {
+	background: #4B81A3;
+	color: #F1FBFB;
+}
+/* 标记后的css */
+.cli {
+	background: #71C98E;
+	color: #F1FBFB;
+}
+
+.prev {
+	background: #71C98E;
+	border: #4B81A3 1px solid;
+	text-align: center;
+	width: 100px;
+	width: 40px;
+}
+
+.next {
+	background: #71C98E;
+	border: #4B81A3 1px solid;
+	text-align: center;
+	width: 100px;
+	width: 40px;
+}
+
+.confirm {
+	background: #71C98E;
+	border: #4B81A3 1px solid;
+	text-align: center;
+	width: 100px;
+	width: 40px;
+}
+
+.daTiArea:first-child {
+	background: blue;
+}
+
+.prac_user {
+	width: 300px;
+	height: 60px;
+	box-sizing: border-box;
+	border-right: #4B81A3 1px solid;
+}
+
+.userImgArea {
+	width: 150px;
+	height: 60px;
+	display: block;
+	float: left;
+}
+
+.userImg {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 2px solid #71C98E;
+	margin: 10px auto;
+	display: block;
+}
+
+.userDiv {
+	width: 100px;
+	height: 60px;
+	display: block;
+	float: left;
+	font-size: 16px;
+	padding-left: 10px;
+}
+
+.userDiv .userSpan {
+	margin: 10px 0 10px;
+	font-size: 16px;
+}
+
+.que_block {
+	width: 1200px;
+	height: 700px;
+	box-sizing: border-box;
+	border: 20px #EFEFEF solid;
+}
+
+.que_block_up {
+	width: 1160px;
+	height: 280px;
+	box-sizing: border-box;
+	padding: 40px 0 0 40px;
+}
+
+.part_select {
+	box-sizing: border-box;
+	border-top: #4B81A3 1px solid;
+	width: 1160px;
+	height: 280px;
+}
+
+.fbtn {
+	width: 290px;
+	height: 30px;
+	position: absolute;
+	top: 30px;
+	right: 100px;
+}
+
+.fbtn .mistakenQ {
+	width: 100px;
+	height: 24px;
+	background: #71C98E;
+	border: #4B81A3 1px solid;
+	margin: 0 4px 0 0;
+	text-align: center;
+}
+
+.fbtn .fsbtn {
+	width: 50px;
+	height: 24px;
+	background: #71C98E;
+	border: #4B81A3 1px solid;
+	margin: 0 4px 0 0;
+	text-align: center;
+}
+
+.parting_sel {
+	width: 800px;
+	height: 250px;
+	display: inline-flexbox;
+	flex-direction: column;
+	padding-top: 30px;
+}
+
+.selabel {
+	margin: 0 0 0 30px;
+	height: 200px;
+	line-height: 40px;
+}
+
+.radio {
+	height: 30px;
+	width: 30px;
+}
+
+.nextPrev input {
+	margin-left: 30px;
+	width: 80px;
+	height: 30px;
+	border-radius: 5%;
+	color: rgba(0, 0, 0, .75);
+}
+
+.btnArea {
+	width: 400px;
+	height: 100px;
+	margin-top: 100px;
+	margin-left: 100px;
+}
+
+.btnArea input[type=button] {
+	width: 60px;
+	height: 30px;
+	background: #71C98E;
+}

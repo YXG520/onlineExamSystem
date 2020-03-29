@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bjsxt.mapper.CommentMapper">
+
+
+	<insert id="insertComment" parameterType="comment">
+		insert into usercomment
+		values(default,#{id},#{content},#{updateTime},#{thumbUp},#{thumbDown})
+	</insert>
+	<!-- 下面只涉及到一个表的查询 -->
+	<select id="selComment2" resultType="comment">
+		select * from usercomment order by updateTime DESC
+	</select>
+
+	<!-- 下面只涉及表的联合查询 -->
+	<resultMap type="comment" id="commentMap">
+		<id column="cid" property="cid" />
+		<result column="content" property="content" />
+		<result column="updateTime" property="updateTime" />
+		<result column="thumbUp" property="thumbUp" />
+		<result column="thumbDown" property="thumbDown" />
+		<association property="users" javaType="Users">
+			<id column="id" property="id" />
+			<result column="mail" property="mail" />
+			<result column="username" property="username" />
+			<result column="photo" property="photo" />
+			<result column="root" property="root" />
+		</association>
+	</resultMap>
+	<select id="selComment" resultMap="commentMap">
+		select c.cid cid,c.content content,c.updateTime updateTime,c.thumbUp
+		thumbUp,c.thumbDown thumbDown,u.id id,u.mail mail,u.username
+		username,u.photo photo,u.root root FROM
+		usercomment c left outer join users u on c.id=u.id order by updateTime DESC
+	</select>
+
+
+	<delete id="deleteComment" parameterType="comment">
+		delete from usercomment where cid=#{cid}
+	</delete>
+	<update id="updateComment" parameterType="comment">
+		update usercomment
+		<set>
+			<if test="thumbUp != null ">
+				thumbUp=#{thumbUp},
+			</if>
+			<if test="thumbDown != null">
+				thumbDown=#{thumbDown},
+			</if>
+			<if test="content != null and content != '' ">
+				content=#{content},
+			</if>
+
+		</set>
+		where cid=#{cid}
+	</update>
+</mapper>

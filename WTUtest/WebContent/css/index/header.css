@@ -1,0 +1,119 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	width: 1518px;
+	height: 72px;
+	background: #142833;
+	position: relative;
+	z-index: 1000;
+}
+
+.nav {
+	width: 1400px;
+	height: 72px;
+	margin: 0 auto;
+}
+
+#logo {
+	width: 160px;
+	height: 100%;
+	float: left;
+	font-size: 20px;
+	font-family: "MS UI Gothic";
+	color: #CCD9E0;
+	line-height: 72px;
+	text-align: center;
+}
+
+.nav_float {
+	float: right;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	height: 72px;
+	line-height: 72px;
+	float: left;
+	padding: 0 20px;
+	display: block;
+}
+
+.nav_content {
+	float: left;
+}
+
+.nav_ul {
+	height: 72px;
+}
+
+.nav_content  .nav_ul li {
+	margin: 0 10px;
+}
+
+.nav_content  .nav_ul li:hover {
+	background: gray;
+}
+
+.thefont {
+	color: #F1FBFB;
+	font-size: 17px;
+	opacity: 0.9;
+	text-decoration: none;
+}
+
+.login_regest {
+	width: 500px;
+	height: 72px;
+}
+
+.non_login {
+	display: block;
+	width: 250px;
+	float: right;
+	margin: 0 50px;
+}
+
+.non_login a {
+	margin: 0 15px;
+	float: left;
+}
+
+.already_login {
+	width: 500px;
+	height: 72px;
+	line-height: 72px;
+	display: block;
+	color: white;
+	float: right;
+	margin: 0 8px 0 0;
+}
+
+.already_login .userSpan {
+	padding: 0 10px 0 10px;
+}
+
+.userImg {
+	width: 30px;
+	height: 30px;
+	border: 2px solid white;
+	border-radius: 50%;
+	position: relative;
+	top: 10px;
+}
+
+.account_btn {
+	width: 80px;
+	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	border: 1px solid #B4B6B8;
+	border-radius: 5px;
+	float: left;
+	margin: 20px 8px 0 0;
+}

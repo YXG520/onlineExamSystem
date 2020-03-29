@@ -1,0 +1,64 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 1520px;
+}
+
+#showArea {
+	width: 1200px;
+	height: 730px;
+	background: #E7EDEE;
+	margin: 20px auto 0;
+	border-radius: 8px;
+	font-size: 18px;
+}
+
+#showArea .targetPage {
+	outline-style: none;
+	width: 80px;
+	height: 30px;
+	background: #4B81A3;
+	border: none;
+	color: #DFEBEB;
+	margin-left: 8px;
+	float: right;
+}
+
+.mistakeItem {
+	padding: 12px;
+	height: 240px;
+	box-sizing: border-box;
+}
+
+.topic {
+	height: 50px;
+}
+
+.optionList {
+	width: 100%;
+	height: 120px;
+	margin: 0px 0 0 0;
+}
+
+.opt {
+	margin: 0 0 5px 0;
+}
+
+.pd {
+	width: 100%;
+	height: 60px;
+	margin: 8px 0 0 0;
+}
+
+.imformation {
+	font-weight: 600;
+	height: 36px;
+	border-bottom: 1.5px solid #4B81A3;
+}
+
+.imformation span {
+	margin: 0 12px 0 0;
+}

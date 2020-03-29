@@ -1,0 +1,154 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: url(../images/login/derrbyy.jpg) no-repeat;
+}
+
+#regestweb {
+	width: 500px;
+	height: 600px;
+	margin: 80px auto 50px;
+	box-sizing: border-box;
+	padding: 15px;
+	background-color: #F1FBFB;
+	border-radius: 8px;
+	position: relative;
+}
+
+.cross {
+	width: 16px;
+	height: 16px;
+	background: url(../images/cross.png) no-repeat;
+	background-size: 80%;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+}
+
+.crosss {
+	width: 16px;
+	height: 16px;
+	background: url(../images/crossa.png) no-repeat;
+	background-size: 80%;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+}
+
+#regest_area {
+	width: 350px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#title_wap {
+	width: 100%;
+	height: 18px;
+	font-size: 14px;
+	margin: 0 0 20px;
+}
+
+#title_wap span {
+	font-weight: 700;
+	color: #576770;
+	padding: 0 8px 0;
+	border-bottom-style: solid;
+}
+
+#title_wap a {
+	color: #4B81A3;
+	float: right;
+}
+
+.regestform {
+	font-size: 16px;
+	color: #3F4A51;
+}
+
+#forms #username, #mail {
+	margin-bottom: 0;
+}
+
+input {
+	outline-style: none;
+	border: 1px solid #B4B6B8;
+	width: 350px;
+	height: 50px;
+	margin: 0 0 20px;
+	border-radius: 10px;
+	box-sizing: border-box;
+	padding: 5px 14px;
+}
+
+#getCode {
+	width: 100px;
+	/* height: 30px; */
+	position: absolute;
+	right: 75px;
+	top: 123px;
+	background: #4B81A3;
+}
+
+.noCode {
+	position: absolute;
+	top: 173px;
+	color: #4B81A3;
+	font-size: 14px;
+	margin: 0 0 12px 12px;
+}
+
+#regestbtn {
+	background-color: #4B81A3;
+}
+
+label {
+	position: absolute;
+	top: 383px;
+	font-size: 14px;
+	margin: 0 0 12px 12px;
+}
+
+#fileInput {
+	display: none;
+	height: 40px;
+	width: 40px;
+}
+
+.fileTip {
+	background: #ffffff;
+	border: 1px solid #B4B6B8;
+	box-sizing: border-box;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 403px;
+	margin: 0 0 0 12px;
+	text-align: center;
+	line-height: 50px;
+	font-size: 28px;
+	font-weight: 100;
+}
+
+.fileTip2 {
+	width: 270px;
+	height: 50px;
+	margin: 0 0 10px 70px;
+}
+
+.tip3 {
+	height: 50px;
+	width: 210px;
+	font-size: 14px;
+	float: left;
+}
+
+.accountImg {
+	width: 50px;
+	height: 50px;
+	float: right;
+	border: 1px solid #B4B6B8;
+	box-sizing: border-box;
+}

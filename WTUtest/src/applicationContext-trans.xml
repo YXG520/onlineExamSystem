@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+	<!-- 事务管理器 -->
+	<bean id="txManage"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="sqliteDataSource"></property>
+	</bean>
+	<!-- 声明式事务 -->
+	<tx:advice id="txAdvice" transaction-manager="txManage">
+		<tx:attributes>
+			<tx:method name="ins*" />
+			<tx:method name="del*" />
+			<tx:method name="upd*" />
+			<tx:method name="*" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- 配置aop，增加service层的扩展性，给service层添加事物管理器 -->
+	<aop:config>
+		<aop:pointcut
+			expression="execution(* com.bjsxt.service.impl.*.*(..))" id="mypoint" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="mypoint" />
+	</aop:config>
+</beans>

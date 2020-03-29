@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd"
+	default-autowire="byName">
+	<!-- 加载属性文件 -->
+	<context:property-placeholder
+		location="classpath:db.properties" />
+	<!-- 数据源 -->
+	<!-- <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+	<!-- <property name="driverClassName" value="${jdbc.driver}"></property> -->
+	<!-- <property name="url" value="${jdbc.url}"></property> -->
+	<!-- <property name="username" value="${jdbc.username}"></property> -->
+	<!-- <property name="password" value="${jdbc.password}"></property> -->
+	<!-- </bean> -->
+	<!-- 配置tomcat数据库连接池 -->
+	<bean id="sqliteDataSource"
+		class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+		<property name="driverClassName" value="${jdbc.driver}"></property>
+		<property name="url" value="${jdbc.url}"></property>
+		<property name="username" value="${jdbc.username}"></property>
+		<property name="password" value="${jdbc.password}"></property>
+		<property name="maxIdle" value="100" />
+		<!-- (int) 最小空闲连接： 连接池中容许保持空闲状态的最小连接数量， 低于这个数量将创建新的连接， 如果设置为0 则不创建,如果连接验证失败将缩小这个值,默认与initialSize 
+			相同 -->
+		<property name="minIdle" value="10" />
+		<!-- (int) 最大活动连接： 连接池在同一时间能够分配的最大活动连接的数量， 如果设置为非正数则表示不限制 -->
+		<property name="maxActive" value="100" />
+		<!-- (int) 最大等待时间： 当没有可用连接时， 连接池等待连接被归还的最大时间( 以毫秒计数)， 超过时间则抛出异常， 如果设置为-1 
+			表示无限等待，默认30000（30秒） -->
+		<property name="maxWait" value="10000" />
+		<!-- (int) 初始化连接： 连接池启动时创建的初始化连接数量 -->
+		<property name="initialSize" value="10" />
+		<!-- (boolean) 标记是否删除泄露的连接， 如果他们超过了removeAbandonedTimout 的限制。 如果设置为true， 
+			连接被认为是被泄露并且可以被删除， 如果空闲时间超过removeAbandonedTimeout。 设置为true 可以为写法糟糕的没有关闭连接的程序修复数据库连接。 
+			参考logAbandoned -->
+		<property name="removeAbandoned" value="true" />
+		<!-- (int) 泄露的连接可以被删除的超时值， 单位秒应设置为应用中查询执行最长的时间 -->
+		<property name="removeAbandonedTimeout" value="600" />
+		<!-- 验证连接是否有效，(String) SQL 查询， 用来验证从连接池取出的连接， 在将连接返回给调用者 之前。如果指定， 则查询必须是一个SQL 
+			SELECT 并且必须返回至少一行记录 查询不必返回记录， 但这样将不能抛出SQL异常 -->
+		<property name="validationQuery" value="select 1" />
+		<!-- (long) 避免过度验证，保证验证不超过这个频率——以毫秒为单位。如果一个连接应该被验证， 但上次验证未达到指定间隔，将不再次验证。 
+			30000（30秒） -->
+		<property name="validationInterval" value="30000" />
+		<!-- (boolean) 连接池创建的连接的默认的auto-commit 状态,driver default -->
+		<property name="defaultAutoCommit" value="true" />
+		<!-- 验证失败时，是否将连接从池中丢弃 -->
+		<property name="testWhileIdle" value="true" />
+		<!-- 把空闲时间超过minEvictableIdleTimeMillis毫秒的连接断开, 直到连接池中的连接数到minIdle为止(毫秒，30分钟) -->
+		<property name="timeBetweenEvictionRunsMillis"
+			value="1200000" />
+		<!-- 连接池中连接可空闲的时间（毫秒，5分钟） -->
+		<property name="minEvictableIdleTimeMillis" value="1800000" />
+		<!-- 在每次空闲连接回收器线程(如果有)运行时检查的连接数量 -->
+		<property name="numTestsPerEvictionRun" value="5" />
+	</bean>
+
+	<!-- SqlSessionFactory -->
+	<bean id="factory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="sqliteDataSource"></property>
+		<!-- 配置分页插件 -->
+		<property name="plugins">
+			<array>
+				<bean class="com.github.pagehelper.PageInterceptor">
+				</bean>
+			</array>
+		</property>
+		<!-- 数据源 -->
+		<!-- 配置pojo别名 -->
+		<property name="typeAliasesPackage" value="com.bjsxt.pojo"></property>
+		<!-- dao层接口对应的sql语句所在 配置文件的所在位置 -->
+		<!-- <property name="mapperLocations" value="classpath:com.bjsxt.mapper/*.xml" 
+			/> -->
+		<!-- 配置Mybatis的核心 配置文件所在位置 -->
+		<!-- <property name="configLocation" value="classpath:SqlMapConfig.xml" 
+			/> -->
+	</bean>
+	<!-- 扫描器， 扫描器相当于 mybatis.xml 中 mappers 下 package 标签,扫描 com.bjsxt.mapper 
+		包后会给对应接口创建对象 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 要扫描哪个包 -->
+		<property name="basePackage" value="com.bjsxt.mapper"></property>
+		<!-- 和 factory 产生关系 -->
+		<property name="sqlSessionFactoryBeanName" value="factory"></property>
+	</bean>
+</beans>

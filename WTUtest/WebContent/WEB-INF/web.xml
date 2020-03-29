@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>webApp.root</param-value>
+	</context-param>
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:log4j.properties</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext-*.xml</param-value>
+	</context-param>
+	<listener>
+		<!-- 封装了一个监听器,帮助加载 Spring 的配置文件 -->
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<servlet>
+		<!-- 加载 SpringMVC 的配置文件 -->
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:springmvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<!-- 设置访问后台界面的过滤器 -->
+	<filter>
+		<filter-name>adminLoginFilter</filter-name>
+		<filter-class>com.bjsxt.filter.AdminLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>adminLoginFilter</filter-name>
+		<url-pattern>/view/adminjsp/*</url-pattern>
+	</filter-mapping>
+
+	<!-- 设置访界面的过滤器 -->
+	<filter>
+		<filter-name>qtLoginFilter</filter-name>
+		<filter-class>com.bjsxt.filter.QtLoginFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>qtLoginFilter</filter-name>
+		<url-pattern>/view/qtjsp/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<session-config>
+		<session-timeout>30</session-timeout>
+	</session-config>
+</web-app>

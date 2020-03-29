@@ -1,0 +1,100 @@
+#index {
+	width: 1518px;
+	margin: 0 auto;
+}
+
+#idendify {
+	width: 100%;
+	height: 730px;
+	background: url(../../images/index/sakdji.jpg) no-repeat;
+}
+
+.second_font {
+	color: #F1FBFB;
+	font-size: 30px;
+}
+
+.third_font {
+	color: #F1FBFB;
+	font-size: 20px;
+	font-weight: 200;
+	opacity: 0.9;
+}
+
+.posi_abc {
+	position: relative;
+	top: 340px;
+	left: 35%;
+	width: 700px;
+	height: 400px;
+}
+
+#component {
+	width: 100%;
+	height: 800px;
+	background: #F1FBFB;
+}
+
+.com_intro {
+	width: 300px;
+	height: 55px;
+	margin: 0 auto 0;
+	font-size: 35px;
+	color: #576770;
+	position: relative;
+	top: 100px;
+	border-bottom: #576770 1px solid;
+}
+
+.com_ul {
+	width: 780px;
+	height: 200px;
+	margin: 0 auto;
+	position: relative;
+	top: 200px;
+	display: block;
+}
+
+.com_ul2 {
+	width: 530px;
+	height: 200px;
+	margin: 0 auto;
+	position: relative;
+	top: 200px;
+	display: block;
+}
+
+.com_float {
+	box-sizing: border-box;
+	width: 250px;
+	height: 200px;
+	border: #576770 1px solid;
+	margin: 0 8px 8px 0;
+	text-align: center;
+	line-height: 200px;
+	font-size: 26px;
+	color: #576770;
+}
+
+.practice {
+	width: 70px;
+	height: 100px;
+	background-color: #4B81A3;
+	position: absolute;
+	top: 60px;
+	left: 750px;
+}
+
+.practice ul {
+	width: 100%;
+	height: 100%;
+}
+
+.prac_li {
+	box-sizing: border-box;
+	width: 70px;
+	height: 30px;
+	padding: 0 0 0 10px;
+	/* border-left: #F1FBFB 2px solid; */
+	margin: 0 0 3px 0;
+}
